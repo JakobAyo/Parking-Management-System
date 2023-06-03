@@ -29,7 +29,7 @@ The system enables real-time monitoring of available parking lots and provides v
 6. Parking Lot Types: The system supports different types of parking lots, including family parking lots, disabled parking lots, and electric vehicle charging stations. Users can easily modify the type of a parking lot to accommodate specific requirements or designate specialized spaces.
 
 <p align="center">
-<img src="https://github.com/YacoubAyo/Parking-Deck/assets/125179129/15960f3c-011b-435a-9f72-22367d479a2f">
+<img src="https://github.com/YacoubAyo/Parking-Deck/assets/125179129/5a020690-f173-45ea-a688-eec385dc690b">
 </p>
 
 Overall, the system provides a comprehensive solution for parking lot management, revenue tracking, and customization of parking services. It simplifies the monitoring and administration of parking lots, ensuring efficient utilization and a smooth parking experience for users.
