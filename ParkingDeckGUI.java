@@ -34,7 +34,7 @@ public class ParkingDeckGUI extends javax.swing.JFrame {
 
         logo_label = new javax.swing.JLabel();
         PriceConfigButton = new javax.swing.JButton();
-        EmptyButton = new javax.swing.JButton();
+        parkinglotConfig_button = new javax.swing.JButton();
         monitorButton = new javax.swing.JButton();
         RevenueButton = new javax.swing.JButton();
         currentYear_textfield = new javax.swing.JTextField();
@@ -62,13 +62,13 @@ public class ParkingDeckGUI extends javax.swing.JFrame {
         });
         getContentPane().add(PriceConfigButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 660, 150, 60));
 
-        EmptyButton.setText("Monitor");
-        EmptyButton.addActionListener(new java.awt.event.ActionListener() {
+        parkinglotConfig_button.setText("Parkinglot Config");
+        parkinglotConfig_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmptyButtonActionPerformed(evt);
+                parkinglotConfig_buttonActionPerformed(evt);
             }
         });
-        getContentPane().add(EmptyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 740, 150, 60));
+        getContentPane().add(parkinglotConfig_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 740, 150, 60));
 
         monitorButton.setText("Monitor");
         monitorButton.addActionListener(new java.awt.event.ActionListener() {
@@ -109,8 +109,13 @@ public class ParkingDeckGUI extends javax.swing.JFrame {
         }       
     }                                                 
 
-    private void EmptyButtonActionPerformed(java.awt.event.ActionEvent evt) {   
-        getcurrentYear();                                    
+    private void parkinglotConfig_buttonActionPerformed(java.awt.event.ActionEvent evt) {   
+        getcurrentYear(); 
+        if (validYear) {
+            new ParkinglotConfigGUI().setVisible(true);
+            
+            validYear = false;
+        }                                        
     }                                           
 
     private void monitorButtonActionPerformed(java.awt.event.ActionEvent evt) {   
@@ -163,7 +168,7 @@ public class ParkingDeckGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton EmptyButton;
+    private javax.swing.JButton parkinglotConfig_button;
     private javax.swing.JButton PriceConfigButton;
     private javax.swing.JButton RevenueButton;
     private javax.swing.JLabel logo_label;

@@ -35,7 +35,6 @@ public class Car implements Serializable{
 
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
         return String.format("%s", type);
     }
 

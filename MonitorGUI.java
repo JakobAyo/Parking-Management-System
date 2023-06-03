@@ -1,9 +1,13 @@
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.swing.ImageIcon;
+import javax.swing.Icon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -20,9 +24,41 @@ public class MonitorGUI extends javax.swing.JFrame {
     private Payment payTicket;
     private int parkingspotID;
 
+    private Icon disabledIcon = new ImageIcon("images/disabled.png");
+    private Icon familyIcon = new ImageIcon("images/family.png");
+    private Icon electricIcon = new ImageIcon("images/electric.png");
+    private ArrayList<ParkingSpot> parkinglots = parkingdeck.listParkingspots();
+    
+    public void loadConfig(){
+
+        for (ParkingSpot spot : parkinglots) {
+            javax.swing.JPanel selectedPanel = panelMap.get(spot.getSpotId());
+            Component component = selectedPanel.getComponent(1);
+            javax.swing.JLabel labelIcon = (javax.swing.JLabel) component;
+
+            if (spot.isOccupied()){
+                selectedPanel.setBackground(Color.GREEN);
+            }
+
+            switch(spot.getParkingType()) {
+                case DISABLEDPARKINGSPOT:
+                    labelIcon.setIcon(disabledIcon);
+                    break;
+                case FAMILYPARKINGSPOT:
+                    labelIcon.setIcon(familyIcon);
+                    break;
+                 case ELECTRICPARKINGSPOT:
+                    labelIcon.setIcon(electricIcon);
+                    break;
+                default:
+                     labelIcon.setIcon(null);
+            }
+        }
+    }
 
     public MonitorGUI() {
         initComponents();
+        loadConfig();
     }
 
     @SuppressWarnings("unchecked")
@@ -89,6 +125,7 @@ public class MonitorGUI extends javax.swing.JFrame {
         Label8 = new javax.swing.JLabel();
         Label9 = new javax.swing.JLabel();
         Label10 = new javax.swing.JLabel();
+        
 
         forthPrice_label = new javax.swing.JLabel();
         firstPrice_label1 = new javax.swing.JLabel();
@@ -106,6 +143,26 @@ public class MonitorGUI extends javax.swing.JFrame {
         electric_label08 = new javax.swing.JLabel();
         electric_label09 = new javax.swing.JLabel();
         electric_label10 = new javax.swing.JLabel();
+        standard_label11 = new javax.swing.JLabel();
+        standard_label12 = new javax.swing.JLabel();
+        standard_label13 = new javax.swing.JLabel();
+        standard_label14 = new javax.swing.JLabel();
+        standard_label15 = new javax.swing.JLabel();
+        standard_label16 = new javax.swing.JLabel();
+        standard_label17 = new javax.swing.JLabel();
+        standard_label18 = new javax.swing.JLabel();
+        standard_label19 = new javax.swing.JLabel();
+        standard_label20 = new javax.swing.JLabel();
+        standard_label21 = new javax.swing.JLabel();
+        standard_label22 = new javax.swing.JLabel();
+        standard_label23 = new javax.swing.JLabel();
+        standard_label24 = new javax.swing.JLabel();
+        standard_label25 = new javax.swing.JLabel();
+        standard_label26 = new javax.swing.JLabel();
+        standard_label27 = new javax.swing.JLabel();
+        standard_label28 = new javax.swing.JLabel();
+        standard_label29 = new javax.swing.JLabel();
+        standard_label30 = new javax.swing.JLabel();
 
         assignCar_label = new javax.swing.JLabel();
         releaseCar_label = new javax.swing.JLabel();
@@ -116,8 +173,6 @@ public class MonitorGUI extends javax.swing.JFrame {
         occupied_label = new javax.swing.JLabel();
         numOfOccpiedSpots_label = new javax.swing.JLabel();
         curentPrices_label = new javax.swing.JLabel();
-
-
 
 
         panelMap.put(1, Panel1);
@@ -150,7 +205,6 @@ public class MonitorGUI extends javax.swing.JFrame {
         panelMap.put(28, Panel28);
         panelMap.put(29, Panel29);
         panelMap.put(30, Panel30);
-
 
 
         setMaximumSize(new java.awt.Dimension(1920, 1080));
@@ -291,9 +345,10 @@ public class MonitorGUI extends javax.swing.JFrame {
         Panel15.setForeground(new java.awt.Color(153, 153, 153));
         Panel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Label15.setFont(new java.awt.Font("Segoe UI", 0, 18));
         Label15.setText("15");
         Panel15.add(Label15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        Panel15.add(standard_label15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 80, -1));
 
         getContentPane().add(Panel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 130, 80, 120));
 
@@ -301,9 +356,10 @@ public class MonitorGUI extends javax.swing.JFrame {
         Panel14.setForeground(new java.awt.Color(153, 153, 153));
         Panel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Label14.setFont(new java.awt.Font("Segoe UI", 0, 18));
         Label14.setText("14");
         Panel14.add(Label14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        Panel14.add(standard_label14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 80, -1));
 
         getContentPane().add(Panel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 130, 80, 120));
 
@@ -311,9 +367,10 @@ public class MonitorGUI extends javax.swing.JFrame {
         Panel19.setForeground(new java.awt.Color(153, 153, 153));
         Panel19.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label19.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Label19.setFont(new java.awt.Font("Segoe UI", 0, 18));
         Label19.setText("19");
         Panel19.add(Label19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        Panel19.add(standard_label19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 80, -1));
 
         getContentPane().add(Panel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 130, 80, 120));
 
@@ -321,9 +378,10 @@ public class MonitorGUI extends javax.swing.JFrame {
         Panel18.setForeground(new java.awt.Color(153, 153, 153));
         Panel18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Label18.setFont(new java.awt.Font("Segoe UI", 0, 18));
         Label18.setText("18");
         Panel18.add(Label18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        Panel18.add(standard_label18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 80, -1));
 
         getContentPane().add(Panel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 130, 80, 120));
 
@@ -331,9 +389,10 @@ public class MonitorGUI extends javax.swing.JFrame {
         Panel12.setForeground(new java.awt.Color(153, 153, 153));
         Panel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Label12.setFont(new java.awt.Font("Segoe UI", 0, 18));
         Label12.setText("12");
         Panel12.add(Label12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        Panel12.add(standard_label12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 80, -1));
 
         getContentPane().add(Panel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 80, 120));
 
@@ -341,9 +400,10 @@ public class MonitorGUI extends javax.swing.JFrame {
         Panel20.setForeground(new java.awt.Color(153, 153, 153));
         Panel20.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label20.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Label20.setFont(new java.awt.Font("Segoe UI", 0, 18));
         Label20.setText("20");
         Panel20.add(Label20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        Panel20.add(standard_label20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 80, -1));
 
         getContentPane().add(Panel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 130, 80, 120));
 
@@ -351,9 +411,10 @@ public class MonitorGUI extends javax.swing.JFrame {
         Panel11.setForeground(new java.awt.Color(153, 153, 153));
         Panel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Label11.setFont(new java.awt.Font("Segoe UI", 0, 18));
         Label11.setText("11");
         Panel11.add(Label11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        Panel11.add(standard_label11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 80, -1));
 
         getContentPane().add(Panel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 80, 120));
 
@@ -361,9 +422,10 @@ public class MonitorGUI extends javax.swing.JFrame {
         Panel13.setForeground(new java.awt.Color(153, 153, 153));
         Panel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Label13.setFont(new java.awt.Font("Segoe UI", 0, 18));
         Label13.setText("13");
         Panel13.add(Label13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        Panel13.add(standard_label13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 80, -1));
 
         getContentPane().add(Panel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, 80, 120));
 
@@ -371,9 +433,10 @@ public class MonitorGUI extends javax.swing.JFrame {
         Panel16.setForeground(new java.awt.Color(153, 153, 153));
         Panel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Label16.setFont(new java.awt.Font("Segoe UI", 0, 18));
         Label16.setText("16");
         Panel16.add(Label16, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        Panel16.add(standard_label16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 80, -1));
 
         getContentPane().add(Panel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 130, 80, 120));
 
@@ -381,9 +444,10 @@ public class MonitorGUI extends javax.swing.JFrame {
         Panel17.setForeground(new java.awt.Color(153, 153, 153));
         Panel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Label17.setFont(new java.awt.Font("Segoe UI", 0, 18));
         Label17.setText("17");
         Panel17.add(Label17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        Panel17.add(standard_label17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 80, -1));
 
         getContentPane().add(Panel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 130, 80, 120));
 
@@ -391,9 +455,10 @@ public class MonitorGUI extends javax.swing.JFrame {
         Panel29.setForeground(new java.awt.Color(153, 153, 153));
         Panel29.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label29.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Label29.setFont(new java.awt.Font("Segoe UI", 0, 18));
         Label29.setText("29");
         Panel29.add(Label29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        Panel29.add(standard_label29, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 80, -1));
 
         getContentPane().add(Panel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 260, 80, 120));
 
@@ -401,9 +466,10 @@ public class MonitorGUI extends javax.swing.JFrame {
         Panel21.setForeground(new java.awt.Color(153, 153, 153));
         Panel21.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label21.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Label21.setFont(new java.awt.Font("Segoe UI", 0, 18));
         Label21.setText("21");
         Panel21.add(Label21, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        Panel21.add(standard_label21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 80, -1));
 
         getContentPane().add(Panel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 80, 120));
 
@@ -411,9 +477,10 @@ public class MonitorGUI extends javax.swing.JFrame {
         Panel23.setForeground(new java.awt.Color(153, 153, 153));
         Panel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label23.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Label23.setFont(new java.awt.Font("Segoe UI", 0, 18));
         Label23.setText("23");
         Panel23.add(Label23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        Panel23.add(standard_label23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 80, -1));
 
         getContentPane().add(Panel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 260, 80, 120));
 
@@ -421,9 +488,10 @@ public class MonitorGUI extends javax.swing.JFrame {
         Panel28.setForeground(new java.awt.Color(153, 153, 153));
         Panel28.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label28.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Label28.setFont(new java.awt.Font("Segoe UI", 0, 18));
         Label28.setText("28");
         Panel28.add(Label28, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        Panel28.add(standard_label28, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 80, -1));
 
         getContentPane().add(Panel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 260, 80, 120));
 
@@ -431,9 +499,10 @@ public class MonitorGUI extends javax.swing.JFrame {
         Panel25.setForeground(new java.awt.Color(153, 153, 153));
         Panel25.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Label25.setFont(new java.awt.Font("Segoe UI", 0, 18));
         Label25.setText("25");
         Panel25.add(Label25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        Panel25.add(standard_label25, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 80, -1));
 
         getContentPane().add(Panel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 260, 80, 120));
 
@@ -441,9 +510,10 @@ public class MonitorGUI extends javax.swing.JFrame {
         Panel27.setForeground(new java.awt.Color(153, 153, 153));
         Panel27.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label27.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Label27.setFont(new java.awt.Font("Segoe UI", 0, 18));
         Label27.setText("27");
         Panel27.add(Label27, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        Panel27.add(standard_label27, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 80, -1));
 
         getContentPane().add(Panel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 260, 80, 120));
 
@@ -451,9 +521,10 @@ public class MonitorGUI extends javax.swing.JFrame {
         Panel24.setForeground(new java.awt.Color(153, 153, 153));
         Panel24.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label24.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Label24.setFont(new java.awt.Font("Segoe UI", 0, 18));
         Label24.setText("24");
         Panel24.add(Label24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        Panel24.add(standard_label24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 80, -1));
 
         getContentPane().add(Panel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 260, 80, 120));
 
@@ -461,9 +532,10 @@ public class MonitorGUI extends javax.swing.JFrame {
         Panel26.setForeground(new java.awt.Color(153, 153, 153));
         Panel26.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label26.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Label26.setFont(new java.awt.Font("Segoe UI", 0, 18));
         Label26.setText("26");
         Panel26.add(Label26, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        Panel26.add(standard_label26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 80, -1));
 
         getContentPane().add(Panel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 260, 80, 120));
 
@@ -471,9 +543,10 @@ public class MonitorGUI extends javax.swing.JFrame {
         Panel30.setForeground(new java.awt.Color(153, 153, 153));
         Panel30.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label30.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Label30.setFont(new java.awt.Font("Segoe UI", 0, 18));
         Label30.setText("30");
         Panel30.add(Label30, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        Panel30.add(standard_label30, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 80, -1));
 
         getContentPane().add(Panel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 260, 80, 120));
 
@@ -481,13 +554,14 @@ public class MonitorGUI extends javax.swing.JFrame {
         Panel22.setForeground(new java.awt.Color(153, 153, 153));
         Panel22.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Label22.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Label22.setFont(new java.awt.Font("Segoe UI", 0, 18));
         Label22.setText("22");
         Panel22.add(Label22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        Panel22.add(standard_label22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 80, -1));
 
         getContentPane().add(Panel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 260, 80, 120));
 
-        chooseParkingType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Standard Parking Spot", "Disabled Parking Spot", "Family Parking Spot", "Electric Parking Spot"  }));
+        chooseParkingType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Standard Parkinglot", "Disabled Parkinglot", "Family Parkinglot", "Electric Parkinglot"  }));
         chooseParkingType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chooseParkingTypeActionPerformed(evt);
@@ -513,6 +587,7 @@ public class MonitorGUI extends javax.swing.JFrame {
 
         parkingspotNumber.setText("Parkingspot Number");
         parkingspotNumber.setForeground(Color.GRAY);
+        parkingspotNumber.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         parkingspotNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 parkingspotNumberActionPerformed(evt);
@@ -582,7 +657,7 @@ public class MonitorGUI extends javax.swing.JFrame {
         getContentPane().add(thirdPrice_label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 900, -1, -1));
 
         pack();
-    }// </editor-fold>                        
+    }                  
 
     
     // ActionListeners
@@ -630,43 +705,54 @@ public class MonitorGUI extends javax.swing.JFrame {
     private void confirmButtonReleaseActionPerformed(java.awt.event.ActionEvent evt) {                                                     
         try {
             parkingspotID = Integer.parseInt(parkingspotNumber.getText());
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "This is not a valid Parkingspot Number, Please try again!");
-        }
-
-        JPanel checkOccupiedSpot = panelMap.get(parkingspotID);
-
-        if(checkOccupiedSpot.getBackground().equals(Color.GREEN)) {
-            checkOccupiedSpot.setBackground(new Color(204, 204, 204));
-            occupiedCounter--;
-            numOfOccpiedSpots_label.setText(String.valueOf(occupiedCounter));
-
-            payTicket = new Payment();
-
-            double price = payTicket.calculateParkingPrice(carMap.get(parkingspotID).getParkingTicket());
-
-            // Saving the payment to Revenue
-            revenue.addToRevenue(price, payTicket);
-            revenue.writeRevenue(String.format("Revenue%d.ser", ParkingDeckGUI.getcurrentYear()));
-
-            try {
-                RevenueGUI.appendNewPayments(payTicket);
-                RevenueGUI.setTotalRevenueLabel();
-            } catch (NullPointerException e){
-                System.out.println("RevenueGUI is not opened");
+            if (parkingspotID < 1 || parkingspotID > 30) {
+                throw new IllegalArgumentException();
             }
-
-            JOptionPane.showMessageDialog(null, "Car payed " + price + "€");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "This is not a valid Parkingspot Number, Please try again!");
+        } catch (IllegalArgumentException e){
+            JOptionPane.showMessageDialog(null, "Please enter a number between 1 and 30");
+        } 
             
-        } else {
-            JOptionPane.showMessageDialog(null, "This Parkingspot is not occupied!");
+    
+        try {
+            JPanel checkOccupiedSpot = panelMap.get(parkingspotID);
+            if(checkOccupiedSpot.getBackground().equals(Color.GREEN)) {
+                checkOccupiedSpot.setBackground(new Color(204, 204, 204));
+                occupiedCounter--;
+                numOfOccpiedSpots_label.setText(String.valueOf(occupiedCounter));
+                payTicket = new Payment();
+
+                double price = payTicket.calculateParkingPrice(carMap.get(parkingspotID).getParkingTicket());
+    
+                // Saving the payment to Revenue
+                revenue.addToRevenue(price, payTicket);
+                revenue.writeRevenue(String.format("Revenue%d.ser", ParkingDeckGUI.getcurrentYear()));
+    
+                try {
+                    RevenueGUI.appendNewPayments(payTicket);
+                    RevenueGUI.setTotalRevenueLabel();
+                } catch (NullPointerException e){
+                    System.out.println("RevenueGUI is not opened");
+                }
+    
+                JOptionPane.showMessageDialog(null, "Car payed " + price + "€");
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "This Parkingspot is not occupied!");
+        } 
+        
+        }catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "Please select a spot to release");
         }
+
+
+
+
         
     }        
    
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
 
         try {
@@ -685,9 +771,7 @@ public class MonitorGUI extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MonitorGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MonitorGUI().setVisible(true);
@@ -779,7 +863,25 @@ public class MonitorGUI extends javax.swing.JFrame {
     private javax.swing.JLabel forthPrice_label;
     private javax.swing.JLabel secondPrice_label1;
     private javax.swing.JLabel thirdPrice_label1;
-
-
+    private javax.swing.JLabel standard_label11;
+    private javax.swing.JLabel standard_label12;
+    private javax.swing.JLabel standard_label13;
+    private javax.swing.JLabel standard_label14;
+    private javax.swing.JLabel standard_label15;
+    private javax.swing.JLabel standard_label16;
+    private javax.swing.JLabel standard_label17;
+    private javax.swing.JLabel standard_label18;
+    private javax.swing.JLabel standard_label19;
+    private javax.swing.JLabel standard_label20;
+    private javax.swing.JLabel standard_label21;
+    private javax.swing.JLabel standard_label22;
+    private javax.swing.JLabel standard_label23;
+    private javax.swing.JLabel standard_label24;
+    private javax.swing.JLabel standard_label25;
+    private javax.swing.JLabel standard_label26;
+    private javax.swing.JLabel standard_label27;
+    private javax.swing.JLabel standard_label28;
+    private javax.swing.JLabel standard_label29;
+    private javax.swing.JLabel standard_label30;
     // End of variables declaration                   
 }

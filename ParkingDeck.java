@@ -24,7 +24,6 @@ public class ParkingDeck extends ParkingspotStorage {
     }
 
     public ArrayList<ParkingSpot> listParkingspots(){
-        System.out.println(parkingSpots);
         return parkingSpots;
     }
 

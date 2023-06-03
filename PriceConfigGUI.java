@@ -257,7 +257,11 @@ public class PriceConfigGUI extends javax.swing.JFrame implements Serializable {
         pack();
     }   
          
+
+
     
+
+
     private void Confirm_buttonActionPerformed(java.awt.event.ActionEvent evt) {                                               
         try{
             firstPrice = Double.parseDouble(firstPrice_textfield.getText());

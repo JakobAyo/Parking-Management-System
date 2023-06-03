@@ -1,7 +1,6 @@
 
 public class Main {
     public static void main(String[] args) {
-        ParkingDeck parkingdeck = ParkingDeck.getInstance();
 
         // 2 Disabled Parkingspots
         // 4 Family Parkingspots
@@ -10,8 +9,6 @@ public class Main {
 
         ParkingDeckGUI inter = new ParkingDeckGUI();
         inter.main(args);
-
-
 
     }
 }

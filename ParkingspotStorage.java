@@ -6,12 +6,11 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public abstract class ParkingspotStorage {
-    private ArrayList<ParkingSpot> parkingSpots = new ArrayList<>();
 
-    public void writeParkingspots(){
+    public void writeParkingspots(ArrayList<ParkingSpot> parkingSpots){
         
         try{
-            FileOutputStream fos = new FileOutputStream("Parkinglot");
+            FileOutputStream fos = new FileOutputStream("Parkingdeck");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(parkingSpots);
             oos.close();
@@ -22,9 +21,10 @@ public abstract class ParkingspotStorage {
     }
 
     public ArrayList<ParkingSpot> readParkingSpots(){
-        
+        ArrayList<ParkingSpot> parkingSpots = new ArrayList<ParkingSpot>();
+
         try {
-            FileInputStream fis = new FileInputStream("Parkinglot");
+            FileInputStream fis = new FileInputStream("Parkingdeck");
             ObjectInputStream ois = new ObjectInputStream(fis);
             
             parkingSpots = (ArrayList<ParkingSpot>) ois.readObject();
