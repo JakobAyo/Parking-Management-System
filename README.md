@@ -3,9 +3,8 @@
 The system enables real-time monitoring of available parking lots and provides various functionalities related to parking lot management. It offers the following features:
 
 1. Real-time Monitoring: Users can easily check the availability status of parking lots. The system displays which parking lots are currently occupied and which ones are vacant.
- 
-![image](https://github.com/YacoubAyo/Parking-Deck/assets/125179129/9009647f-3e11-4721-9e15-0b136ea4d9e0)
 
+<img src="https://github.com/YacoubAyo/Parking-Deck/assets/125179129/9009647f-3e11-4721-9e15-0b136ea4d9e0">
 2. Parking Lot Assignment and Release: Users can assign a parking lot to a vehicle upon entry and release it when the vehicle departs. This helps efficiently manage parking spaces and keeps track of occupied and vacant lots.
 
 ![image](https://github.com/YacoubAyo/Parking-Deck/assets/125179129/428bbb1d-e103-43c0-849d-62eab4fa4c2d)
