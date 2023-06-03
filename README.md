@@ -10,7 +10,9 @@ The system enables real-time monitoring of available parking lots and provides v
 
 2. Parking Lot Assignment and Release: Users can assign a parking lot to a vehicle upon entry and release it when the vehicle departs. This helps efficiently manage parking spaces and keeps track of occupied and vacant lots.
 
-<img align="center" src="https://github.com/YacoubAyo/Parking-Deck/assets/125179129/428bbb1d-e103-43c0-849d-62eab4fa4c2d">
+<p align="center">
+<img src="https://github.com/YacoubAyo/Parking-Deck/assets/125179129/428bbb1d-e103-43c0-849d-62eab4fa4c2d">
+</p>
 
 3. Revenue Tracking: The system tracks the total revenue generated in the current year. It calculates revenue based on payments received for parking services. Users can view the accumulated revenue to assess financial performance.
 4. Payment List: The system maintains a comprehensive list of all payments made for parking. Users can access this list to view details such as the duration of each parking session and the corresponding payment amount. This assists in maintaining accurate transaction records.
